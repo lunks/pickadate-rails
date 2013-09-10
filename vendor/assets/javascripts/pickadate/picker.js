@@ -1,4 +1,3 @@
-
 /*!
  * pickadate.js v3.2.1, 2013/08/24
  * By Amsul, http://amsul.ca
@@ -154,10 +153,10 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
 
 
                 // If there’s a format for the hidden input element, create the element
-                // using the name of the original input plus suffix. Otherwise set it to undefined.
+                // using the name of the original input plus prefix or a suffix. Otherwise set it to undefined.
                 // If the element has a value, use either the `data-value` or `value`.
                 if ( SETTINGS.formatSubmit ) {
-                    P._hidden = $( '<input type=hidden name="' + ELEMENT.name + ( SETTINGS.hiddenSuffix || '_submit' ) + '"' + ( $ELEMENT.data( 'value' ) ? ' value="' + PickerConstructor._.trigger( P.component.formats.toString, P.component, [ SETTINGS.formatSubmit, P.component.item.select ] ) + '"' : '' ) + '>' )[ 0 ]
+                    P._hidden = $( '<input type=hidden name="' + SETTINGS.hiddenPrefix + ELEMENT.name + ( SETTINGS.hiddenPrefix ? '' : (SETTINGS.hiddenSuffix || '_submit') ) + '"' + ( $ELEMENT.data( 'value' ) ? ' value="' + PickerConstructor._.trigger( P.component.formats.toString, P.component, [ SETTINGS.formatSubmit, P.component.item.select ] ) + '"' : '' ) + '>' )[ 0 ]
                 }
 
 
